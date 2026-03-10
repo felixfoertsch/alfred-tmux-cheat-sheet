@@ -1,0 +1,106 @@
+new-session	Start a new session	tmux new
+new-session	Start a named session	tmux new -s mysession
+new-session	Start a session with a named window	tmux new -s mysession -n mywindow
+new-session	Start or attach to existing session	tmux new -A -s mysession
+attach-session	Attach to last session	tmux attach
+attach-session	Attach to a session by name	tmux a -t mysession
+detach-client	Detach from current session	tmux detach
+list-sessions	List all sessions	tmux ls
+kill-session	Kill a session by name	tmux kill-session -t mysession
+kill-session	Kill all sessions but current	tmux kill-session -a
+kill-session	Kill all sessions except one	tmux kill-session -a -t mysession
+kill-server	Kill tmux server and all sessions	tmux kill-server
+rename-session	Rename current session	tmux rename-session newname
+switch-client	Switch to another session	tmux switch-client -t mysession
+has-session	Check if a session exists	tmux has-session -t mysession
+new-window	Create a new window	tmux new-window
+new-window	Create a named window	tmux new-window -n editor
+rename-window	Rename current window	tmux rename-window newname
+kill-window	Kill current window	tmux kill-window
+select-window	Select window by number	tmux select-window -t :2
+next-window	Go to next window	tmux next-window
+previous-window	Go to previous window	tmux previous-window
+last-window	Toggle last active window	tmux last-window
+swap-window	Swap two windows	tmux swap-window -s 2 -t 1
+swap-window	Move current window left	tmux swap-window -t -1
+move-window	Move window between sessions	tmux move-window -s foo:0 -t bar:9
+move-window	Renumber windows to remove gaps	tmux move-window -r
+list-windows	List windows	tmux list-windows
+link-window	Link window from another session	tmux link-window -s src:1 -t dst
+unlink-window	Unlink a window	tmux unlink-window -t :1
+split-window	Split pane vertically (left/right)	tmux split-window -h
+split-window	Split pane horizontally (top/bottom)	tmux split-window -v
+split-window	Split pane with specific size	tmux split-window -h -l 30%
+select-pane	Select pane by number	tmux select-pane -t 1
+select-pane	Select pane to the left	tmux select-pane -L
+select-pane	Select pane above	tmux select-pane -U
+resize-pane	Resize pane left	tmux resize-pane -L 10
+resize-pane	Resize pane right	tmux resize-pane -R 10
+resize-pane	Resize pane up	tmux resize-pane -U 5
+resize-pane	Resize pane down	tmux resize-pane -D 5
+resize-pane	Zoom/unzoom pane	tmux resize-pane -Z
+kill-pane	Kill current pane	tmux kill-pane
+swap-pane	Swap two panes	tmux swap-pane -s 0 -t 1
+join-pane	Move pane from another window	tmux join-pane -s :1
+break-pane	Move pane to its own window	tmux break-pane
+display-panes	Show pane numbers	tmux display-panes
+move-pane	Move pane to another window	tmux move-pane -t :2
+last-pane	Toggle last active pane	tmux last-pane
+rotate-window	Rotate panes	tmux rotate-window
+pipe-pane	Log pane output to file	tmux pipe-pane -o 'cat >> ~/tmux.log'
+copy-mode	Enter copy mode	tmux copy-mode
+capture-pane	Capture pane content to buffer	tmux capture-pane -pS -200
+list-buffers	List all paste buffers	tmux list-buffers
+show-buffer	Show buffer contents	tmux show-buffer
+choose-buffer	Choose and paste a buffer	tmux choose-buffer
+save-buffer	Save buffer to file	tmux save-buffer ~/tmux-buffer.txt
+paste-buffer	Paste buffer	tmux paste-buffer
+delete-buffer	Delete a buffer	tmux delete-buffer -b 0
+set-buffer	Set buffer content	tmux set-buffer "text"
+load-buffer	Load file into buffer	tmux load-buffer ~/file.txt
+send-keys	Send keys to a pane	tmux send-keys -t :1 "ls" Enter
+send-keys	Send keys to a session	tmux send-keys -t mysession "cmd" Enter
+set-option	Enable mouse mode	tmux set -g mouse on
+set-option	Set vi mode keys	tmux set -g mode-keys vi
+set-option	Set base index to 1	tmux set -g base-index 1
+set-option	Set escape time	tmux set -sg escape-time 0
+set-option	Set history limit	tmux set -g history-limit 10000
+set-option	Set default terminal	tmux set -g default-terminal "screen-256color"
+set-window-option	Set pane base index	tmux setw -g pane-base-index 1
+set-window-option	Enable automatic rename	tmux setw -g automatic-rename on
+show-options	Show all global options	tmux show-options -g
+show-options	Show a specific option	tmux show-options -g status-style
+source-file	Reload tmux config	tmux source-file ~/.tmux.conf
+bind-key	Bind key to reload config	tmux bind r source-file ~/.tmux.conf \; display "Reloaded"
+bind-key	Bind key to split vertical	tmux bind | split-window -h
+unbind-key	Remove a key binding	tmux unbind-key r
+list-keys	List all key bindings	tmux list-keys
+list-keys	Show bindings for a key	tmux list-keys -T prefix C-a
+choose-tree	Interactive session/window chooser	tmux choose-tree
+choose-tree	Interactive session chooser	tmux choose-tree -s
+display-message	Show a message	tmux display-message "Hello"
+display-message	Show pane title	tmux display-message -p "#{pane_title}"
+command-prompt	Open command prompt	tmux command-prompt
+show-environment	Show environment variables	tmux show-environment -g
+set-environment	Set environment variable	tmux set-environment -g EDITOR nvim
+run-shell	Run shell command	tmux run-shell "script.sh"
+if-shell	Run command conditionally	tmux if-shell "test -f ~/.tmux.conf" "source ~/.tmux.conf"
+display-popup	Show a popup window	tmux display-popup -w 80% -h 80%
+display-menu	Show a menu	tmux display-menu -T "Title" "Item1" i "run cmd1"
+clock-mode	Show clock	tmux clock-mode
+clear-history	Clear pane history	tmux clear-history
+confirm-before	Ask before running command	tmux confirm-before kill-session
+refresh-client	Refresh client display	tmux refresh-client
+respawn-pane	Restart a dead pane	tmux respawn-pane -k
+respawn-window	Restart a dead window	tmux respawn-window -k
+lock-server	Lock the server	tmux lock-server
+suspend-client	Suspend the client	tmux suspend-client
+wait-for	Wait for a signal	tmux wait-for signal-name
+list-commands	List all tmux commands	tmux list-commands
+show-messages	Show log messages	tmux show-messages
+find-window	Find window by name	tmux find-window -N "editor"
+select-layout	Set pane layout	tmux select-layout even-horizontal
+select-layout	Set tiled layout	tmux select-layout tiled
+customize-mode	Enter customize mode	tmux customize-mode
+set-hook	Set a hook	tmux set-hook after-new-window "select-layout tiled"
+show-hooks	Show all hooks	tmux show-hooks -g

@@ -1,0 +1,156 @@
+attach-session	Attach to a session by name	tmux a -t mysession	
+attach-session	Attach to last session	tmux attach	
+copy-mode	Enter copy mode	tmux copy-mode	
+detach-client	Detach from current session	tmux detach	
+key-,	Rename the current window.		{prefix} ,
+key-:	Enter the tmux command prompt.		{prefix} :
+key-?	List all key bindings.		{prefix} ?
+key-"	Split the current pane into two, top and bottom.		{prefix} "
+key-[	Enter copy mode to copy text or view the history.		{prefix} [
+key-]	Paste the most recently copied buffer of text.		{prefix} ]
+key-%	Split the current pane into two, left and right.		{prefix} %
+key-$	Rename the current session.		{prefix} $
+key-0-to-9	Select windows 0 to 9.		{prefix} 0 to 9
+key-c	Create a new window.		{prefix} c
+key-d	Detach the current client.		{prefix} d
+key-n	Change to the next window.		{prefix} n
+key-o	Select the next pane in the current window.		{prefix} o
+key-p	Change to the previous window.		{prefix} p
+key-w	Choose the current window interactively.		{prefix} w
+key-x	Kill the current pane.		{prefix} x
+key-z	Toggle zoom state of the current pane.		{prefix} z
+kill-pane	Kill current pane	tmux kill-pane	
+kill-server	Kill tmux server and all sessions	tmux kill-server	
+kill-session	Kill a session by name	tmux kill-session -t mysession	
+kill-session	Kill all sessions but current	tmux kill-session -a	
+kill-session	Kill all sessions except one	tmux kill-session -a -t mysession	
+kill-window	Kill current window	tmux kill-window	
+list-sessions	List all sessions	tmux ls	
+new-session	Start a named session	tmux new -s mysession	
+new-session	Start a new session	tmux new	
+new-session	Start a session with a named window	tmux new -s mysession -n mywindow	
+new-session	Start or attach to existing session	tmux new -A -s mysession	
+new-window	Create a named window	tmux new-window -n editor	
+new-window	Create a new window	tmux new-window	
+rename-window	Rename current window	tmux rename-window newname	
+resize-pane	Resize pane down	tmux resize-pane -D 5	
+resize-pane	Resize pane left	tmux resize-pane -L 10	
+resize-pane	Resize pane right	tmux resize-pane -R 10	
+resize-pane	Resize pane up	tmux resize-pane -U 5	
+resize-pane	Zoom/unzoom pane	tmux resize-pane -Z	
+select-pane	Select pane above	tmux select-pane -U	
+select-pane	Select pane by number	tmux select-pane -t 1	
+select-pane	Select pane to the left	tmux select-pane -L	
+select-window	Select window by number	tmux select-window -t :2	
+set-option	Enable mouse mode	tmux set -g mouse on	
+set-option	Set base index to 1	tmux set -g base-index 1	
+set-option	Set default terminal	tmux set -g default-terminal "screen-256color"	
+set-option	Set escape time	tmux set -sg escape-time 0	
+set-option	Set history limit	tmux set -g history-limit 10000	
+set-option	Set vi mode keys	tmux set -g mode-keys vi	
+source-file	Reload tmux config	tmux source-file ~/.tmux.conf	
+split-window	Split pane horizontally (top/bottom)	tmux split-window -v	
+split-window	Split pane vertically (left/right)	tmux split-window -h	
+split-window	Split pane with specific size	tmux split-window -h -l 30%	
+bind-key	Bind key to reload config	tmux bind r source-file ~/.tmux.conf \; display "Reloaded"	
+bind-key	Bind key to split vertical	tmux bind | split-window -h	
+break-pane	Move pane to its own window	tmux break-pane	
+choose-tree	Interactive session chooser	tmux choose-tree -s	
+choose-tree	Interactive session/window chooser	tmux choose-tree	
+command-prompt	Open command prompt	tmux command-prompt	
+display-message	Show a message	tmux display-message "Hello"	
+display-message	Show pane title	tmux display-message -p "#{pane_title}"	
+has-session	Check if a session exists	tmux has-session -t mysession	
+join-pane	Move pane from another window	tmux join-pane -s :1	
+key--	Delete the most recently copied buffer of text.		{prefix} -
+key-;	Move to the previously active pane.		{prefix} ;
+key-!	Break the current pane out of the window.		{prefix} !
+key-.	Prompt for an index to move the current window.		{prefix} .
+key-'	Prompt for a window index to select.		{prefix} '
+key-(	Switch the attached client to the previous session.		{prefix} (
+key-)	Switch the attached client to the next session.		{prefix} )
+key-{	Swap the current pane with the previous pane.		{prefix} {
+key-}	Swap the current pane with the next pane.		{prefix} }
+key-&	Kill the current window.		{prefix} &
+key-#	List all paste buffers.		{prefix} #
+key-=	Choose which buffer to paste interactively from a list.		{prefix} =
+key-C-b	Send the prefix key (C-b) through to the application.		{prefix} Ctrl+b
+key-D	Choose a client to detach.		{prefix} D
+key-f	Prompt to search for text in open windows.		{prefix} f
+key-l	Move to the previously selected window.		{prefix} l
+key-L	Switch the attached client back to the last session.		{prefix} L
+key-Page-Up	Enter copy mode and scroll one page up.		{prefix} Page Up
+key-q	Briefly display pane indexes.		{prefix} q
+key-s	Select a new session for the attached client		{prefix} s
+key-Space	Arrange the current window in the next preset layout.		{prefix} Space
+last-pane	Toggle last active pane	tmux last-pane	
+last-window	Toggle last active window	tmux last-window	
+list-keys	List all key bindings	tmux list-keys	
+list-keys	Show bindings for a key	tmux list-keys -T prefix C-a	
+list-windows	List windows	tmux list-windows	
+move-window	Move window between sessions	tmux move-window -s foo:0 -t bar:9	
+move-window	Renumber windows to remove gaps	tmux move-window -r	
+next-window	Go to next window	tmux next-window	
+previous-window	Go to previous window	tmux previous-window	
+rename-session	Rename current session	tmux rename-session newname	
+send-keys	Send keys to a pane	tmux send-keys -t :1 "ls" Enter	
+send-keys	Send keys to a session	tmux send-keys -t mysession "cmd" Enter	
+set-window-option	Enable automatic rename	tmux setw -g automatic-rename on	
+set-window-option	Set pane base index	tmux setw -g pane-base-index 1	
+show-options	Show a specific option	tmux show-options -g status-style	
+show-options	Show all global options	tmux show-options -g	
+swap-pane	Swap two panes	tmux swap-pane -s 0 -t 1	
+swap-window	Move current window left	tmux swap-window -t -1	
+swap-window	Swap two windows	tmux swap-window -s 2 -t 1	
+switch-client	Switch to another session	tmux switch-client -t mysession	
+unbind-key	Remove a key binding	tmux unbind-key r	
+capture-pane	Capture pane content to buffer	tmux capture-pane -pS -200	
+choose-buffer	Choose and paste a buffer	tmux choose-buffer	
+clear-history	Clear pane history	tmux clear-history	
+clock-mode	Show clock	tmux clock-mode	
+confirm-before	Ask before running command	tmux confirm-before kill-session	
+customize-mode	Enter customize mode	tmux customize-mode	
+delete-buffer	Delete a buffer	tmux delete-buffer -b 0	
+display-menu	Show a menu	tmux display-menu -T "Title" "Item1" i "run cmd1"	
+display-panes	Show pane numbers	tmux display-panes	
+display-popup	Show a popup window	tmux display-popup -w 80% -h 80%	
+find-window	Find window by name	tmux find-window -N "editor"	
+if-shell	Run command conditionally	tmux if-shell "test -f ~/.tmux.conf" "source ~/.tmux.conf"	
+key-~	Show previous messages from tmux, if any.		{prefix} ~
+key-C-o	Rotate the panes in the current window forwards.		{prefix} Ctrl+o
+key-C-z	Suspend the tmux client.		{prefix} Ctrl+z
+key-i	Display some information about the current window.		{prefix} i
+key-M	Clear the marked pane.		{prefix} M
+key-m	Mark the current pane (see select-pane -m).		{prefix} m
+key-M-1-to-M-7	Arrange panes in one of the seven preset layouts: even-		{prefix} Alt+1 to Alt+7
+key-M-n	Move to the next window with a bell or activity marker.		{prefix} Alt+n
+key-M-o	Rotate the panes in the current window backwards.		{prefix} Alt+o
+key-M-p	Move to the previous window with a bell or activity		{prefix} Alt+p
+key-r	Force redraw of the attached client.		{prefix} r
+key-t	Show the time.		{prefix} t
+link-window	Link window from another session	tmux link-window -s src:1 -t dst	
+list-buffers	List all paste buffers	tmux list-buffers	
+load-buffer	Load file into buffer	tmux load-buffer ~/file.txt	
+lock-server	Lock the server	tmux lock-server	
+move-pane	Move pane to another window	tmux move-pane -t :2	
+paste-buffer	Paste buffer	tmux paste-buffer	
+pipe-pane	Log pane output to file	tmux pipe-pane -o 'cat >> ~/tmux.log'	
+refresh-client	Refresh client display	tmux refresh-client	
+respawn-pane	Restart a dead pane	tmux respawn-pane -k	
+respawn-window	Restart a dead window	tmux respawn-window -k	
+rotate-window	Rotate panes	tmux rotate-window	
+run-shell	Run shell command	tmux run-shell "script.sh"	
+save-buffer	Save buffer to file	tmux save-buffer ~/tmux-buffer.txt	
+select-layout	Set pane layout	tmux select-layout even-horizontal	
+select-layout	Set tiled layout	tmux select-layout tiled	
+set-buffer	Set buffer content	tmux set-buffer "text"	
+set-environment	Set environment variable	tmux set-environment -g EDITOR nvim	
+set-hook	Set a hook	tmux set-hook after-new-window "select-layout tiled"	
+show-buffer	Show buffer contents	tmux show-buffer	
+show-environment	Show environment variables	tmux show-environment -g	
+show-hooks	Show all hooks	tmux show-hooks -g	
+unlink-window	Unlink a window	tmux unlink-window -t :1	
+list-commands	List all tmux commands	tmux list-commands	
+show-messages	Show log messages	tmux show-messages	
+suspend-client	Suspend the client	tmux suspend-client	
+wait-for	Wait for a signal	tmux wait-for signal-name	

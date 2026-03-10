@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>de.felixfoertsch.alfred-tmux-cheatsheet</string>
+	<key>connections</key>
+	<dict>
+		<key>710D59E1-6AE3-40F9-BAA8-C0C0359DF7D3</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>A1B2C3D4-COPY-CLIP-BOARD-E5F6G7H8I9J0</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitowards</key>
+				<string>right</string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Felix Foertsch</string>
+	<key>description</key>
+	<string>Quickly look up tmux commands, key bindings, and practical examples.</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>tmux Cheat Sheet</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>tmux</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuemode</key>
+				<integer>2</integer>
+				<key>runningsubtext</key>
+				<string>Searching tmux commands...</string>
+				<key>script</key>
+				<string>bash scripts/tmux_search.sh "{query}"</string>
+				<key>subtext</key>
+				<integer>1</integer>
+				<key>title</key>
+				<string>Search tmux commands</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>710D59E1-6AE3-40F9-BAA8-C0C0359DF7D3</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>A1B2C3D4-COPY-CLIP-BOARD-E5F6G7H8I9J0</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>tmux Cheat Sheet — quickly look up tmux commands and key bindings from Alfred.
+
+Usage:
+  1. Type "tmux" followed by your query (e.g. "tmux split", "tmux new session name")
+  2. Results show practical commands and default key bindings
+  3. Press Enter to copy the result to clipboard
+  4. Press Cmd+L for large type view
+
+Configuration:
+  Go to Configure Workflow to change the prefix key (default: Ctrl+b).
+
+Data:
+  Key bindings are parsed from your local tmux manual.
+  Practical examples are curated in data/examples.tsv.
+  Run "bash scripts/parse_manual.sh" to regenerate after a tmux update.</string>
+	<key>uid</key>
+	<string>B92B9447-7F37-440D-B747-F0F504688948</string>
+	<key>userconfigurationconfig</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>Ctrl+b</string>
+				<key>placeholder</key>
+				<string>Ctrl+b</string>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>The tmux prefix key combination (e.g. Ctrl+b or Ctrl+a)</string>
+			<key>label</key>
+			<string>Prefix Key</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>prefix</string>
+		</dict>
+	</array>
+	<key>variablesdontexport</key>
+	<array/>
+	<key>version</key>
+	<string>2026.03.10</string>
+	<key>webaddress</key>
+	<string>https://git.felixfoertsch.de/felixfoertsch/alfred-tmux-cheatsheet</string>
+</dict>
+</plist>
